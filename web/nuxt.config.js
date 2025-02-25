@@ -1,6 +1,8 @@
 import { tokens } from './assets/tokens'
 
 export default defineNuxtConfig({
+	debug: true,
+
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
 		head: {
@@ -50,7 +52,7 @@ export default defineNuxtConfig({
 	},
 
 	devServer: {
-		host: 0, // localhost & local ip address
+		host: "0.0.0.0", // localhost & local ip address
 	},
 
 	runtimeConfig: {
@@ -75,7 +77,7 @@ export default defineNuxtConfig({
 	sanity: {
 		projectId: process.env.SANITY_PROJECT_ID,
 		dataset: process.env.SANITY_DATASET,
-		apiVersion: '2022-04-26',
+		apiVersion: process.env.COMPATIBILITY_DATE,
 		useCdn: true,
 		additionalClients: {
 			preview: {

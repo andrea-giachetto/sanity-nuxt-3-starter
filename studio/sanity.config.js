@@ -11,7 +11,7 @@ import { schemaTypes } from './schemas'
 
 export default defineConfig({
 	name: 'default',
-	title: 'Sanity Nuxt 3 Starter',
+	title: 'La Capitale',
 	projectId: process.env.SANITY_STUDIO_PROJECT_ID,
 	dataset: process.env.SANITY_STUDIO_DATASET,
 

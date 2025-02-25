@@ -25,8 +25,7 @@ export const siteQuery = groq`{
 	}
 }`
 
-export const homeQuery = groq`*[(
-	_type == "pageHome")] | order(_updatedAt desc) [0]{
+export const homeQuery = groq`*[(_type == "pageHome")] | order(_updatedAt desc) [0]{
 		...,
 		projects[]->{_id, title, subtitle, slug, titleImage{..., asset->}},
 }`

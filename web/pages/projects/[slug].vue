@@ -1,24 +1,15 @@
 <template>
 	<main class="Project">
-		<section v-if="data" class="Project_Title">
-			<ElementsMediaBaseFigure
-				v-if="data?.titleImage"
-				:image="data.titleImage"
-				class="Project_Titleimage"
-				use-hotspot
-			/>
+		<!-- <section v-if="data" class="Project_Title">
+			<ElementsMediaBaseFigure v-if="data?.titleImage" :image="data.titleImage" class="Project_Titleimage"
+				use-hotspot />
 			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
 			<span class="Project_Credits text_bold">
 				Image by:
-				<ElementsTextLink
-					link-type="externalLink"
-					:href="data?.photographer?.website"
-					:blank="true"
-					class="Projects_Photographer"
-				>
-					{{ data?.photographer?.name }}</ElementsTextLink
-				> </span
-			><br />
+				<ElementsTextLink link-type="externalLink" :href="data?.photographer?.website" :blank="true"
+					class="Projects_Photographer">
+					{{ data?.photographer?.name }}</ElementsTextLink>
+			</span><br />
 			<span class="text-base text_bold">
 				{{ data?.subtitle }}
 			</span>
@@ -28,12 +19,14 @@
 			<div class="blockcontent">
 				<ElementsTextContent :blocks="data.content" />
 			</div>
-		</section>
+		</section> -->
 	</main>
 </template>
 
 <script setup>
 import { singleProjectQuery } from '@/queries/contentQueries'
+
+console.log('singleProjectQuery', singleProjectQuery)
 
 definePageMeta({
 	validate({ params }) {
@@ -58,6 +51,7 @@ const route = useRoute()
 const params = {
 	slug: route.params.slug,
 }
+console.log('params', params)
 const data = await useSanityData({
 	query: singleProjectQuery,
 	params: params,
@@ -113,7 +107,7 @@ h1 {
 	}
 }
 
-.Project_Text > div {
+.Project_Text>div {
 	@media (min-width: token(width.md)) {
 		grid-column: 1 / -2;
 	}

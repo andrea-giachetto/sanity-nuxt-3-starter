@@ -3,7 +3,7 @@ export default defineNuxtPlugin(async () => {
 	const route = useRoute()
 
 	// fetch global page data on start
-	await mainStore.fetchSiteContent()
+	// await mainStore.fetchSiteContent()
 
 	// check if preview mode is active and set previewIsActive
 	const preview = route.query.preview && route.query.preview === 'true'

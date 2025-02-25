@@ -67,10 +67,10 @@ useHead({
 			property: 'og:image:height',
 			content: ogImageUrl
 				? Math.floor(
-						1200 /
-							(mainStore.siteOptions?.seo?.ogImage?.metadata
-								?.dimensions?.aspectRatio ?? 1.5)
-				  )
+					1200 /
+					(mainStore.siteOptions?.seo?.ogImage?.metadata
+						?.dimensions?.aspectRatio ?? 1.5)
+				)
 				: '',
 		},
 		{

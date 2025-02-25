@@ -62,7 +62,7 @@ h1 {
 	}
 }
 
-.TextPage_Text > div {
+.TextPage_Text>div {
 	@media (min-width: token(width.md)) {
 		grid-column: 1 / -2;
 	}
