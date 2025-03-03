@@ -1,8 +1,14 @@
 // documents
 import project from './documents/collections/project'
 import page from './documents/collections/page'
+import articolo from './documents/collections/articolo'
+import tema from './documents/collections/tema'
+import quartiere from './documents/collections/quartiere'
+import tag from './documents/collections/tag'
+import adv from './documents/collections/adv'
+// singletons
 import pageHome from './documents/singletons/pageHome'
-import pageProjects from './documents/singletons/pageProjects'
+import pageContatti from './documents/singletons/pageContatti'
 import siteNav from './documents/site/siteNav'
 import siteOptions from './documents/site/siteOptions'
 // content
@@ -16,12 +22,24 @@ import pictureTitled from './objects/pictureTitled'
 import seo from './objects/seo'
 import video from './objects/video'
 import videoPlayer from './objects/videoPlayer'
+// components
+import pageComponents from '../schemas/documents/pageComponents'
 
 export const schemaTypes = [
-	project,
+	// collections
 	page,
+	articolo,
+	tema,
+	quartiere,
+	tag,
+	adv,
+
+	...pageComponents,
+
+	// rest
+	project,
 	pageHome,
-	pageProjects,
+	pageContatti,
 	siteNav,
 	siteOptions,
 	editorText,
@@ -33,4 +51,5 @@ export const schemaTypes = [
 	seo,
 	video,
 	videoPlayer,
+
 ]

@@ -1,5 +1,7 @@
-import {BiFile} from 'react-icons/bi/'
-import {slugify, validateSlug} from '@/utils/helperFunctions.js'
+import { BiFile } from 'react-icons/bi/'
+import { defineType, defineField } from 'sanity'
+import { slugify, validateSlug } from '@/utils/helperFunctions.js'
+import pageFields from '../pageComponents/pageFields'
 
 export default {
 	title: 'Page',
@@ -17,43 +19,12 @@ export default {
 			name: 'seo',
 		},
 	],
-	fields: [
-		{
-			title: 'Title',
-			name: 'title',
-			type: 'string',
-			validation: (Rule) => Rule.required(),
-			group: 'content',
-		},
-		{
-			title: 'Slug',
-			name: 'slug',
-			type: 'slug',
-			options: {
-				source: 'title',
-				slugify: slugify,
-			},
-			validation: validateSlug,
-			group: 'content',
-		},
-		{
-			title: 'Content',
-			name: 'content',
-			type: 'editorTextMedia',
-			group: 'content',
-		},
-		{
-			title: 'SEO',
-			name: 'seo',
-			type: 'seo',
-			group: 'seo',
-		},
-	],
+	fields: pageFields.map(field => field),
 	preview: {
 		select: {
 			title: 'title',
 		},
-		prepare({title}) {
+		prepare({ title }) {
 			return {
 				title: title ? title : '',
 				media: BiFile,
