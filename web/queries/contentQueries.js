@@ -1,4 +1,8 @@
-import { contentBlockQuery, seoQuery, linkQuery } from '@/queries/helperQueries'
+import {
+  contentBlockQuery,
+  seoQuery,
+  linkQuery,
+} from "@/queries/helperQueries";
 
 export const siteQuery = groq`{
 	"siteOptions": *[_id == "siteOptions"] [0] {
@@ -23,12 +27,12 @@ export const siteQuery = groq`{
 		"pages": *[_type == "page"].slug.current,
 		"projects": *[_type == "project"].slug.current,
 	}
-}`
+}`;
 
 export const homeQuery = groq`*[(_type == "pageHome")] | order(_updatedAt desc) [0]{
 		...,
 		projects[]->{_id, title, subtitle, slug, titleImage{..., asset->}},
-}`
+}`;
 
 export const pageQuery = groq`
 *[_type == 'page' && slug.current == $slug] | order(_updatedAt desc) [0]{
@@ -38,7 +42,7 @@ export const pageQuery = groq`
 	},
 	${seoQuery}
 }
-`
+`;
 
 export const projectsQuery = groq`
 *[(_type == "pageProjects")] | order(_updatedAt desc) [0]{
@@ -48,7 +52,7 @@ export const projectsQuery = groq`
 	},
 	${seoQuery}
 }
-`
+`;
 
 export const singleProjectQuery = groq`
 *[_type == 'project' && slug.current == $slug] | order(_updatedAt desc) [0]{
@@ -59,4 +63,4 @@ export const singleProjectQuery = groq`
 	titleImage{..., asset->},
 	${seoQuery}
 }
-`
+`;
