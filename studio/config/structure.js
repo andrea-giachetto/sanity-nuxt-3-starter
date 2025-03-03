@@ -2,10 +2,6 @@ export const structure = (S) =>
 	S.list()
 		.title('Content')
 		.items([
-			S.documentListItem().id('pageHome').schemaType('pageHome'),
-
-			S.divider(),
-
 			S.listItem({
 				title: 'Artcoli',
 				id: 'articolo',
@@ -20,6 +16,21 @@ export const structure = (S) =>
 							},
 						]),
 			}),
+			S.divider(),
+
+			S.documentListItem().id('pageHome').schemaType('pageHome'),
+
+			S.divider(),
+
+			S.documentListItem().id('pageTemi').schemaType('pageTemi'),
+
+			S.divider(),
+
+			S.documentListItem().id('pageTags').schemaType('pageTags'),
+
+			S.divider(),
+
+			S.documentListItem().id('pageQuartieri').schemaType('pageQuartieri'),
 
 			S.divider(),
 
@@ -95,5 +106,15 @@ export const structure = (S) =>
 
 			// S.documentListItem().id('siteNav').schemaType('siteNav'),
 
-			S.documentListItem().id('siteOptions').schemaType('siteOptions'),
+			S.listItem()
+				.icon()
+				.title('Settings')
+				.child(
+					S.list()
+						.title('Settings')
+						.items([
+							S.documentListItem().id('siteOptions').schemaType('siteOptions'),
+
+						]),
+				),
 		])

@@ -1,52 +1,27 @@
-import { BiFile } from 'react-icons/bi/'
-import { slugify, validateSlug } from '@/utils/helperFunctions.js'
+import { BiMapPin } from 'react-icons/bi/'
+import pageFields from '../pageComponents/pageFields'
+import groups from '../groups'
 
 export default {
   title: 'Quartiere',
   name: 'quartiere',
   type: 'document',
-  icon: BiFile,
+  icon: BiMapPin,
   groups: [
+    ...groups,
     {
-      title: 'Content',
-      name: 'content',
-      default: true,
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-    },
+      title: 'Localizzazione',
+      name: 'localization',
+    }
   ],
   fields: [
+    ...pageFields.map(field => field),
+
     {
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-      group: 'content',
-    },
-    {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        slugify: slugify,
-      },
-      validation: validateSlug,
-      group: 'content',
-    },
-    {
-      title: 'Content',
-      name: 'content',
-      type: 'editorTextMedia',
-      group: 'content',
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-      type: 'seo',
-      group: 'seo',
+      title: 'Localizzazione',
+      name: 'localization',
+      type: 'geopoint',
+      group: 'localization',
     },
   ],
   preview: {
@@ -56,7 +31,7 @@ export default {
     prepare({ title }) {
       return {
         title: title ? title : '',
-        media: BiFile,
+        media: BiMapPin,
       }
     },
   },

@@ -1,5 +1,6 @@
 import { BiFile } from 'react-icons/bi/'
-import { slugify, validateSlug } from '@/utils/helperFunctions.js'
+import pageFields from '../pageComponents/pageFields'
+import groups from '../groups'
 
 export default {
   title: 'Articolo',
@@ -7,46 +8,44 @@ export default {
   type: 'document',
   icon: BiFile,
   groups: [
+    ...groups,
+
     {
-      title: 'Content',
-      name: 'content',
-      default: true,
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-    },
+      title: 'Tema, Tags e Quartieri',
+      name: 'assegnazioni',
+    }
   ],
   fields: [
+    ...pageFields.map(field => field),
+
+    // field reference to type: 'tags', 'temi', 'quartiere'
     {
-      title: 'Title',
-      name: 'title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-      group: 'content',
+      title: 'Tema',
+      name: 'tema',
+      type: 'reference',
+      to: [{ type: 'tema' }],
+      validation: Rule => Rule.required(),
+      group: 'assegnazioni'
     },
+
     {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        slugify: slugify,
-      },
-      validation: validateSlug,
-      group: 'content',
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [
+        { type: 'reference', to: [{ type: 'tag' }] }],
+      validation: Rule => Rule.required().min(1),
+      group: 'assegnazioni'
     },
+
     {
-      title: 'Content',
-      name: 'content',
-      type: 'editorTextMedia',
-      group: 'content',
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-      type: 'seo',
-      group: 'seo',
+      title: 'Quartieri',
+      name: 'quartieri',
+      type: 'array',
+      of: [
+        { type: 'reference', to: [{ type: 'quartiere' }] }],
+      validation: Rule => Rule.required().min(1),
+      group: 'assegnazioni'
     },
   ],
   preview: {

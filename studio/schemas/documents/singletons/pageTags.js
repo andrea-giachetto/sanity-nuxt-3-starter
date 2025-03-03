@@ -2,22 +2,23 @@ import { BiPurchaseTagAlt } from 'react-icons/bi/'
 import pageFields from '../pageComponents/pageFields'
 import groups from '../groups'
 
+const pageTagsFields = pageFields.filter(field => field.name !== 'slug')
+
 export default {
-  title: 'Tag',
-  name: 'tag',
+  title: 'Tags',
+  name: 'pageTags',
   type: 'document',
   icon: BiPurchaseTagAlt,
+
   groups,
+
   fields: [
-    ...pageFields.map(field => field),
+    ...pageTagsFields.map(field => field),
   ],
   preview: {
-    select: {
-      title: 'title',
-    },
-    prepare({ title }) {
+    prepare() {
       return {
-        title: title ? title : '',
+        title: 'Pagina Tags',
         media: BiPurchaseTagAlt,
       }
     },

@@ -1,22 +1,11 @@
-import { BiFile } from 'react-icons/bi/'
+import { BiSolidMegaphone } from 'react-icons/bi/'
 import { slugify, validateSlug } from '@/utils/helperFunctions.js'
 
 export default {
   title: 'Pubblicità',
   name: 'adv',
   type: 'document',
-  icon: BiFile,
-  groups: [
-    {
-      title: 'Content',
-      name: 'content',
-      default: true,
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-    },
-  ],
+  icon: BiSolidMegaphone,
   fields: [
     {
       title: 'Title',
@@ -24,29 +13,6 @@ export default {
       type: 'string',
       validation: (Rule) => Rule.required(),
       group: 'content',
-    },
-    {
-      title: 'Slug',
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-        slugify: slugify,
-      },
-      validation: validateSlug,
-      group: 'content',
-    },
-    {
-      title: 'Content',
-      name: 'content',
-      type: 'editorTextMedia',
-      group: 'content',
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-      type: 'seo',
-      group: 'seo',
     },
   ],
   preview: {
@@ -56,7 +22,7 @@ export default {
     prepare({ title }) {
       return {
         title: title ? title : '',
-        media: BiFile,
+        media: BiSolidMegaphone,
       }
     },
   },

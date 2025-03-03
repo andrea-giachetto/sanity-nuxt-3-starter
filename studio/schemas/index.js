@@ -8,6 +8,7 @@ import tag from './documents/collections/tag'
 import adv from './documents/collections/adv'
 // singletons
 import pageHome from './documents/singletons/pageHome'
+import pageTemi from './documents/singletons/pageTemi'
 import pageContatti from './documents/singletons/pageContatti'
 import siteNav from './documents/site/siteNav'
 import siteOptions from './documents/site/siteOptions'
@@ -24,6 +25,8 @@ import video from './objects/video'
 import videoPlayer from './objects/videoPlayer'
 // components
 import pageComponents from '../schemas/documents/pageComponents'
+import pageTags from './documents/singletons/pageTags'
+import pageQuartieri from './documents/singletons/pageQuartieri'
 
 export const schemaTypes = [
 	// collections
@@ -39,6 +42,9 @@ export const schemaTypes = [
 	// rest
 	project,
 	pageHome,
+	pageTemi,
+	pageTags,
+	pageQuartieri,
 	pageContatti,
 	siteNav,
 	siteOptions,

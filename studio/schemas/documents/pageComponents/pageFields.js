@@ -4,14 +4,15 @@ import pageComponents from '../pageComponents'
 
 const pageFields = [
   {
-    title: 'Title',
+    title: 'Titolo della pagina',
     name: 'title',
     type: 'string',
     validation: (Rule) => Rule.required(),
-    group: 'content',
+    group: 'settings',
   },
   {
     title: 'Slug',
+    description: 'URL univoco per questa pagina. Se lasciato vuoto, verrà generato automaticamente.',
     name: 'slug',
     type: 'slug',
     options: {
@@ -19,7 +20,17 @@ const pageFields = [
       slugify: slugify,
     },
     validation: validateSlug,
-    group: 'content',
+    group: 'settings',
+  },
+  {
+    title: 'Immagine',
+    description: 'Attenzione: questa immagine verrà usata nella griglia di anteprima della relativa pagina.',
+    name: 'image',
+    type: 'image',
+    options: {
+      hotspot: true,
+    },
+    group: 'settings',
   },
   defineField({
     title: 'Contenuto della pagina corrente',

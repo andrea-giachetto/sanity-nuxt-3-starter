@@ -1,6 +1,6 @@
 import { BiHome } from 'react-icons/bi/'
 import pageFields from '../pageComponents/pageFields'
-
+import groups from '../groups'
 const pageHomeFields = pageFields.filter(field => field.name !== 'slug')
 
 export default {
@@ -8,37 +8,8 @@ export default {
 	name: 'pageHome',
 	type: 'document',
 	icon: BiHome,
-
-	groups: [
-		{
-			title: 'Content',
-			name: 'content',
-			default: true,
-		},
-		{
-			title: 'SEO',
-			name: 'seo',
-		},
-	],
-
+	groups,
 	fields: [
-		// {
-		// 	title: 'Featured Projects',
-		// 	name: 'projects',
-		// 	type: 'array',
-		// 	of: [
-		// 		{
-		// 			type: 'reference',
-		// 			to: [{ type: 'project' }],
-		// 			options: {
-		// 				disableNew: true,
-		// 			},
-		// 		},
-		// 	],
-
-		// 	validation: (Rule) => Rule.unique(),
-		// },
-
 		...pageHomeFields.map(field => field),
 	],
 	preview: {

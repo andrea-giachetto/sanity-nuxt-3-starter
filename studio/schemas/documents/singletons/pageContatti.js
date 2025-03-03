@@ -1,5 +1,6 @@
 import { BiHome, BiMessage } from 'react-icons/bi/'
 import pageFields from '../pageComponents/pageFields'
+import groups from '../groups'
 
 const pageContactFields = pageFields
 
@@ -9,17 +10,7 @@ export default {
   type: 'document',
   icon: BiMessage,
 
-  groups: [
-    {
-      title: 'Content',
-      name: 'content',
-      default: true,
-    },
-    {
-      title: 'SEO',
-      name: 'seo',
-    },
-  ],
+  groups,
 
   fields: [
     // {

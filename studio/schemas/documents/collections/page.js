@@ -1,24 +1,13 @@
 import { BiFile } from 'react-icons/bi/'
-import { defineType, defineField } from 'sanity'
-import { slugify, validateSlug } from '@/utils/helperFunctions.js'
 import pageFields from '../pageComponents/pageFields'
+import groups from '../groups'
 
 export default {
 	title: 'Page',
 	name: 'page',
 	type: 'document',
 	icon: BiFile,
-	groups: [
-		{
-			title: 'Content',
-			name: 'content',
-			default: true,
-		},
-		{
-			title: 'SEO',
-			name: 'seo',
-		},
-	],
+	groups,
 	fields: pageFields.map(field => field),
 	preview: {
 		select: {
