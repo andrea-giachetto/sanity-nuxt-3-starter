@@ -9,12 +9,12 @@ import UltimeNotizie from "./UltimeNotizie";
 import VideoArticoloEvidenza from "./VideoArticoloEvidenza";
 
 const pageComponents = [
+  NotizieEvidenza,
   ColonneImmagini,
   ContenutoArticolo,
   HeroArticolo,
   HeroTitolo,
   Immagine,
-  NotizieEvidenza,
   SliderArticoli,
   UltimeNotizie,
   VideoArticoloEvidenza,

@@ -16,7 +16,16 @@ export default {
     }
   ],
   fields: [
+    {
+      title: 'In evidenza',
+      description: 'Seleziona per mettere in evidenza la news.',
+      name: 'isHighlight',
+      type: 'boolean',
+      validation: Rule => Rule.required(),
+      group: 'settings'
+    },
     ...pageFields.map(field => field),
+    // field true / false "in evidenza"
 
     // field reference to type: 'tags', 'temi', 'quartiere'
     {
