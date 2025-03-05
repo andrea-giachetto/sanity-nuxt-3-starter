@@ -45,7 +45,7 @@ export const pageQuery = groq`
 `;
 
 export const projectsQuery = groq`
-*[(_type == "pageProjects")] | order(_updatedAt desc) [0]{
+*[(_type == "pageTemi")] | order(_updatedAt desc) [0]{
 	...,
 	"projects": *[_type == "project"] | order(title asc, _updatedAt desc) {
 		title, slug, subtitle, titleImage{..., asset->}
