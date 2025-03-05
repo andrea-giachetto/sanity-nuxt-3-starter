@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="h-screen"></div>
-    <div class="h-screen"></div>
+    <div class="container">
+      <SectionUltimeNotizie />
+    </div>
   </div>
 </template>

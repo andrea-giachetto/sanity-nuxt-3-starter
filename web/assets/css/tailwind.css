@@ -15,28 +15,35 @@
     @apply font-brand-primary dark:text-brand-gray-50 text-brand-gray-700;
   }
 
-  p {
+  /* p {
+    @apply font-brand-primary text-lg lg:text-xl font-light;
   }
 
   h1 {
+    @apply font-brand-secondary text-5xl lg:text-7xl font-normal;
   }
 
   h2 {
+    @apply font-brand-secondary text-4xl lg:text-6xl font-semibold dark:text-brand-gray-300 text-brand-gray-500;
   }
 
   h3 {
+    @apply font-brand-secondary text-2xl lg:text-4xl font-normal italic;
   }
 
   h4 {
+    @apply font-brand-primary text-xl lg:text-3xl font-medium;
   }
 
   h5 {
+    @apply font-brand-primary text-lg lg:text-2xl font-light italic dark:text-brand-gray-300 text-brand-gray-500;
   }
 
   h6 {
-  }
-
-  /* ::-webkit-scrollbar {
+    @apply font-brand-primary text-sm font-light uppercase dark:text-brand-gray-300 text-brand-gray-500;
+  } */
+/* 
+  ::-webkit-scrollbar {
     @apply bg-transparent w-1;
   }
 
