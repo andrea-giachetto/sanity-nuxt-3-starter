@@ -1,6 +1,6 @@
 <template>
   <div class="z-40 sticky top-0 left-0 w-full">
-    <div id="top-bar" class="dark:bg-brand-gray-600 h-14 transition-all duration-300">
+    <div id="top-bar" class="dark:bg-brand-gray-600 bg-brand-gray-50 h-14 transition-all duration-300">
       <div
         class="grid grid-cols-2 lg:grid-cols-3 container h-full"
       >
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div id="sticky-bar" class="dark:bg-brand-gray-700 h-20 transition-all duration-300">
+    <div id="sticky-bar" class="dark:bg-brand-gray-700 bg-brand-gray-50 h-20 transition-all duration-300">
       <div class="container grid grid-cols-3 h-full">
         <nav class="hidden lg:flex items-center gap-6">
           <nuxt-link class="font-bold" to="/"
