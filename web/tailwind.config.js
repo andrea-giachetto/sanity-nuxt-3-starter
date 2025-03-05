@@ -21,16 +21,18 @@ module.exports = {
       },
     },
     extend: {
-      // fontFamily: {
-      //   // "brand-primary": "GTPressura",
-      //   // "brand-secondary": "Agrandir",
-      //   // "brand-tertiary": "PostGrotesk",
-      // },
+      fontFamily: {
+        "brand-primary": "IBMPlexSans",
+        "brand-secondary": "Fraunces",
+      },
       colors: {
         brand: {
-          "primary-400": "#7D6D63",
-          "primary-500": "#4a4441",
-          "primary-600": "#2D2A2A",
+          "gray-50": "#FFFDFD",
+          "gray-300": "#BFBBBB",
+          "gray-400": "#777676",
+          "gray-500": "#363535",
+          "gray-600": "#262424",
+          "gray-700": "#1E1E1E",
         },
       },
     },

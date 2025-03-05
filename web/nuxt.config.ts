@@ -61,7 +61,13 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@unlazy/nuxt",
     "@nuxtjs/tailwindcss",
+    "nuxt-svgo",
+    "@nuxtjs/color-mode",
   ],
+
+  svgo: {
+    autoImportPath: "./assets/svg/",
+  },
 
   imports: {
     dirs: ["stores"],

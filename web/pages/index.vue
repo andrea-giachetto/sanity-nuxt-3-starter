@@ -1,5 +1,6 @@
 <template>
   <div>
-    <h1>Homfde</h1>
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
   </div>
 </template>
