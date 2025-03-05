@@ -1,6 +1,6 @@
 <template>
-	<main class="Project">
-		<!-- <section v-if="data" class="Project_Title">
+  <main class="Project">
+    <!-- <section v-if="data" class="Project_Title">
 			<ElementsMediaBaseFigure v-if="data?.titleImage" :image="data.titleImage" class="Project_Titleimage"
 				use-hotspot />
 			<h1 class="text-lg text_bold text_white">{{ data.title }}</h1>
@@ -20,100 +20,100 @@
 				<ElementsTextContent :blocks="data.content" />
 			</div>
 		</section> -->
-	</main>
+  </main>
 </template>
 
 <script setup>
-import { singleProjectQuery } from '@/queries/contentQueries'
+import { singleProjectQuery } from "@/queries/contentQueries";
 
-console.log('singleProjectQuery', singleProjectQuery)
+console.log("singleProjectQuery", singleProjectQuery);
 
 definePageMeta({
-	validate({ params }) {
-		const mainStore = useMainStore()
-		if (
-			!mainStore.slugs.projects.includes(params.slug) &&
-			!mainStore.previewIsActive
-		) {
-			return createError({
-				statusCode: 404,
-				message: 'Project not found',
-			})
-		}
+  validate({ params }) {
+    const mainStore = useMainStore();
+    if (
+      !mainStore.slugs.projects.includes(params.slug) &&
+      !mainStore.previewIsActive
+    ) {
+      return createError({
+        statusCode: 404,
+        message: "Project not found",
+      });
+    }
 
-		return true
-	},
-})
+    return true;
+  },
+});
 
 // get data
-const mainStore = useMainStore()
-const route = useRoute()
+const mainStore = useMainStore();
+const route = useRoute();
 const params = {
-	slug: route.params.slug,
-}
-console.log('params', params)
+  slug: route.params.slug,
+};
+console.log("params", params);
 const data = await useSanityData({
-	query: singleProjectQuery,
-	params: params,
-})
+  query: singleProjectQuery,
+  params: params,
+});
 
 // meta
 usePageHead({
-	title: data?.value?.title,
-	seo: data?.value?.seo,
-	titleImage: data?.value?.titleImage,
-})
+  title: data?.value?.title,
+  seo: data?.value?.seo,
+  titleImage: data?.value?.titleImage,
+});
 </script>
 
 <style scoped>
 .Project {
-	position: relative;
+  position: relative;
 }
 
 .Project_Title {
-	position: relative;
-	width: 100%;
-	margin-bottom: 10rem;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10rem;
 }
 
 .Project_Titleimage {
-	position: relative;
-	width: 100%;
-	aspect-ratio: 2 / 1;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
 }
 
 .Project_Titleimage:deep(picture),
 .Project_Titleimage:deep(img) {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 h1 {
-	padding: 0.5rem 0;
+  padding: 0.5rem 0;
 }
 
 /* text */
 
 .Project_Text {
-	position: relative;
-	display: grid;
+  position: relative;
+  display: grid;
 
-	@media (min-width: token(width.md)) {
-		grid-template-columns: repeat(6, minmax(0, 1fr));
-		gap: 1rem;
-	}
+  @media (min-width: token(width.md)) {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1rem;
+  }
 }
 
-.Project_Text>div {
-	@media (min-width: token(width.md)) {
-		grid-column: 1 / -2;
-	}
+.Project_Text > div {
+  @media (min-width: token(width.md)) {
+    grid-column: 1 / -2;
+  }
 
-	@media (min-width: token(width.lg)) {
-		grid-column: 1 / -4;
-	}
+  @media (min-width: token(width.lg)) {
+    grid-column: 1 / -4;
+  }
 }
 </style>

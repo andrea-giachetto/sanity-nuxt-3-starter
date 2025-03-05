@@ -18,7 +18,7 @@ export const linkQuery = `
 		"linkType": "externalLink",
 		"title": coalesce(title, href)
 	}
-`
+`;
 
 export const contentBlockQuery = `
 	_type == "block" => {
@@ -38,11 +38,11 @@ export const contentBlockQuery = `
 		_type == "download" => {"url": asset->url},
 		${linkQuery}
 	}
-`
+`;
 
 export const seoQuery = `
 	seo {
 		...,
 		ogImage{asset->}
 	}
-`
+`;

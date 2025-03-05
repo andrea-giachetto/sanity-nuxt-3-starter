@@ -1,0 +1,79 @@
+@import './_fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    @apply scroll-smooth dark:bg-brand-gray-600 bg-brand-gray-50;
+  }
+
+  body {
+    @apply font-brand-primary dark:text-brand-gray-50 text-brand-gray-700;
+  }
+
+  p {
+  }
+
+  h1 {
+  }
+
+  h2 {
+  }
+
+  h3 {
+  }
+
+  h4 {
+  }
+
+  h5 {
+  }
+
+  h6 {
+  }
+
+  /* ::-webkit-scrollbar {
+    @apply bg-transparent w-1;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply rounded-lg !bg-brand-primary-500;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply !bg-white rounded-lg;
+  } */
+}
+
+@layer components {
+}
+@layer utils {
+}
+
+/* .swiper-button-next,
+.swiper-button-prev {
+  @apply !text-white;
+}
+
+.swiper{
+  @apply !pb-12;
+} */
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
