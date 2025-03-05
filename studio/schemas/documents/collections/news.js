@@ -3,8 +3,8 @@ import pageFields from '../pageComponents/pageFields'
 import groups from '../groups'
 
 export default {
-  title: 'Articolo',
-  name: 'articolo',
+  title: 'News',
+  name: 'news',
   type: 'document',
   icon: BiFile,
   groups: [

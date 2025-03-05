@@ -3,12 +3,12 @@ export const structure = (S) =>
 		.title('Content')
 		.items([
 			S.listItem({
-				title: 'Artcoli',
-				id: 'articolo',
-				schemaType: 'articolo',
+				title: 'Notizie',
+				id: 'news',
+				schemaType: 'news',
 				child: () =>
-					S.documentTypeList('articolo')
-						.title('articolo')
+					S.documentTypeList('news')
+						.title('news')
 						.defaultOrdering([
 							{
 								field: 'title',

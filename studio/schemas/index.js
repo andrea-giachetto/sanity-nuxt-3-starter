@@ -1,7 +1,7 @@
 // documents
 import project from './documents/collections/project'
 import page from './documents/collections/page'
-import articolo from './documents/collections/articolo'
+import news from './documents/collections/news'
 import tema from './documents/collections/tema'
 import quartiere from './documents/collections/quartiere'
 import tag from './documents/collections/tag'
@@ -31,7 +31,7 @@ import pageQuartieri from './documents/singletons/pageQuartieri'
 export const schemaTypes = [
 	// collections
 	page,
-	articolo,
+	news,
 	tema,
 	quartiere,
 	tag,
