@@ -18,6 +18,13 @@ export default {
     ...pageFields.map(field => field),
 
     {
+      name: 'backgroundColor',
+      title: 'Colore del quartiere',
+      type: 'simplerColor',
+      group: 'settings'
+    },
+
+    {
       title: 'Localizzazione',
       name: 'localization',
       type: 'geopoint',

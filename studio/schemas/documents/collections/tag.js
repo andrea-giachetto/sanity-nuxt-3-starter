@@ -10,6 +10,13 @@ export default {
   groups,
   fields: [
     ...pageFields.map(field => field),
+
+    {
+      name: 'backgroundColor',
+      title: 'Colore del tag',
+      type: 'simplerColor',
+      group: 'settings'
+    },
   ],
   preview: {
     select: {
