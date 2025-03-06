@@ -17,7 +17,7 @@
           >ULTIME NOTIZIE</span
         >
         <div class="border-t border-brand-gray-400 py-4 last:pb-0" v-for="i in 3">
-          <div class="flex gap-2 py-2">
+          <div class="flex gap-2 py-4">
             <Label text="ultime notizie" />
             <Label text="politica" color="#8D0942" />
           </div>
