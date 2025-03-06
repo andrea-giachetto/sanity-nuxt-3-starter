@@ -1,6 +1,8 @@
 export const linkTargets = [
 	{ type: 'page' },
-	{ type: 'project' },
 	{ type: 'pageHome' },
 	{ type: 'pageContatti' },
+	{ type: 'tema' },
+	{ type: 'quartiere' },
+	{ type: 'tag' },
 ]

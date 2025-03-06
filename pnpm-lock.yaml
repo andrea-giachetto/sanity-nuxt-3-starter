@@ -67,7 +67,7 @@ importers:
         version: 3.5.2(magicast@0.3.5)
       '@nuxtjs/sanity':
         specifier: ^1.7.1
-        version: 1.13.3(@emotion/is-prop-valid@1.3.1)(@sanity/types@3.77.0(@types/react@19.0.10))(magicast@0.3.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 1.13.3(@sanity/types@3.77.0(@types/react@19.0.10))(magicast@0.3.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@pinia/nuxt':
         specifier: ^0.4.10
         version: 0.4.11(magicast@0.3.5)(typescript@5.7.3)(vue@3.5.13(typescript@5.7.3))
@@ -9878,14 +9878,14 @@ snapshots:
       - typescript
       - vue
 
-  '@nuxtjs/sanity@1.13.3(@emotion/is-prop-valid@1.3.1)(@sanity/types@3.77.0(@types/react@19.0.10))(magicast@0.3.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@nuxtjs/sanity@1.13.3(@sanity/types@3.77.0(@types/react@19.0.10))(magicast@0.3.5)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
       '@portabletext/types': 2.0.13
       '@sanity/client': 6.28.0(debug@4.4.0)
       '@sanity/core-loader': 1.7.37(@sanity/types@3.77.0(@types/react@19.0.10))
       '@sanity/preview-url-secret': 2.1.4(@sanity/client@6.28.0(debug@4.4.0))
-      '@sanity/visual-editing': 2.13.6(@emotion/is-prop-valid@1.3.1)(@sanity/client@6.28.0)(@sanity/types@3.77.0(@types/react@19.0.10))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/visual-editing': 2.13.6(@sanity/client@6.28.0)(@sanity/types@3.77.0(@types/react@19.0.10))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       consola: 3.4.0
       defu: 6.1.4
       jiti: 2.4.2
@@ -10859,7 +10859,7 @@ snapshots:
     optionalDependencies:
       '@sanity/types': 3.77.0(@types/react@19.0.10)(debug@4.4.0)
 
-  '@sanity/visual-editing@2.13.6(@emotion/is-prop-valid@1.3.1)(@sanity/client@6.28.0)(@sanity/types@3.77.0(@types/react@19.0.10))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/visual-editing@2.13.6(@sanity/client@6.28.0)(@sanity/types@3.77.0(@types/react@19.0.10))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@sanity/comlink': 3.0.1
       '@sanity/icons': 3.6.0(react@18.3.1)

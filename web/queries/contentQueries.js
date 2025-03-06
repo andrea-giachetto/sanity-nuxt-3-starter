@@ -1,7 +1,7 @@
 import {
-  contentBlockQuery,
-  seoQuery,
-  linkQuery,
+	contentBlockQuery,
+	seoQuery,
+	linkQuery,
 } from "@/queries/helperQueries";
 
 export const siteQuery = groq`{
@@ -23,10 +23,9 @@ export const siteQuery = groq`{
 			${linkQuery}
 		},
 	},
-	"slugs": {
-		"pages": *[_type == "page"].slug.current,
-		"projects": *[_type == "project"].slug.current,
-	}
+	"temi":  *[_type == "tema"],
+	"quartieri":  *[_type == "quartiere"],
+	"tags":  *[_type == "tag"],
 }`;
 
 export const homeQuery = groq`*[(_type == "pageHome")] | order(_updatedAt desc) [0]{
