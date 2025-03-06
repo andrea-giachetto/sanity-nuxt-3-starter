@@ -86,7 +86,7 @@ export const structure = (S) =>
 			S.divider(),
 
 			S.listItem({
-				title: 'Advertisment',
+				title: 'Pubblicità',
 				id: 'adv',
 				schemaType: 'adv',
 				child: () =>
@@ -106,15 +106,13 @@ export const structure = (S) =>
 
 			// S.documentListItem().id('siteNav').schemaType('siteNav'),
 
-			S.listItem()
-				.icon()
-				.title('Settings')
-				.child(
-					S.list()
-						.title('Settings')
-						.items([
-							S.documentListItem().id('siteOptions').schemaType('siteOptions'),
-
-						]),
-				),
+			// S.documentListItem().id('siteOptions').schemaType('siteOptions'),
+			// S.listItem({
+			// 	title: 'Opzioni del sito',
+			// 	id: 'siteOptions',
+			// 	schemaType: 'siteOptions',
+			// 	child: () =>
+			// 		S.documentTypeList('siteOptions')
+			// 			.title('siteOptions')
+			// })
 		])

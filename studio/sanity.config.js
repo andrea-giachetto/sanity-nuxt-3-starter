@@ -9,6 +9,8 @@ import { defaultDocumentNode } from './config/views'
 import { resolveProductionUrl } from './config/views'
 import { initialValueTemplates } from './config/initialValueTemplates'
 import { schemaTypes } from './schemas'
+import { itITLocale } from '@sanity/locale-it-it'
+
 
 export default defineConfig({
 	name: 'default',
@@ -35,7 +37,8 @@ export default defineConfig({
 				{ label: 'Oro', value: '#626754' },
 			],
 			enableSearch: true,
-		})
+		}),
+		itITLocale(),
 	],
 
 	schema: {
