@@ -1,6 +1,4 @@
 export default defineNuxtConfig({
-  debug: true,
-
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     head: {
