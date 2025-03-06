@@ -27,6 +27,7 @@ import videoPlayer from './objects/videoPlayer'
 import pageComponents from '../schemas/documents/pageComponents'
 import pageTags from './documents/singletons/pageTags'
 import pageQuartieri from './documents/singletons/pageQuartieri'
+import blockContent from './objects/blockContent'
 
 export const schemaTypes = [
 	// collections
@@ -40,7 +41,7 @@ export const schemaTypes = [
 	...pageComponents,
 
 	// rest
-	project,
+	//project,
 	pageHome,
 	pageTemi,
 	pageTags,
@@ -48,14 +49,17 @@ export const schemaTypes = [
 	pageContatti,
 	siteNav,
 	siteOptions,
-	editorText,
-	editorTextMedia,
+
+	// content
+	blockContent,
+	//editorText,
+	//editorTextMedia,
 	link,
 	internalLink,
 	picture,
 	pictureTitled,
 	seo,
-	video,
-	videoPlayer,
+	//video,
+	//videoPlayer,
 
 ]

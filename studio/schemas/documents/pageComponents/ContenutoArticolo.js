@@ -1,16 +1,14 @@
 import { defineArrayMember, defineType, defineField } from 'sanity'
 
-let title = 'ContenutoArticolo'
-
 const ContenutoArticolo = defineType({
-  title,
-  name: title.charAt(0).toLowerCase() + title.slice(1),
+  title: "Contenuto Articolo",
+  name: "ContenutoArticolo",
   type: 'object',
   fields: [
     defineField({
-      title: 'Title',
-      name: 'title',
-      type: 'string',
+      title: 'Contenuto della Notizia',
+      name: 'text',
+      type: 'blockContent',
     }),
   ],
   preview: {
@@ -20,7 +18,7 @@ const ContenutoArticolo = defineType({
     },
     prepare({ title }) {
       return {
-        title,
+        title: "Contenuto Articolo",
       }
     },
   }

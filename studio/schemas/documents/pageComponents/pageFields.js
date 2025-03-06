@@ -4,11 +4,11 @@ import pageComponents from '../pageComponents'
 
 const pageFields = [
   {
-    title: 'Titolo della pagina',
+    title: 'Titolo del contenuto',
     name: 'title',
     type: 'string',
     validation: (Rule) => Rule.required(),
-    group: 'settings',
+    group: 'content',
   },
   {
     title: 'Slug',
@@ -24,7 +24,7 @@ const pageFields = [
   },
   {
     title: 'Immagine',
-    description: 'Attenzione: questa immagine verrà usata nella griglia di anteprima della relativa pagina.',
+    description: 'Attenzione: questa immagine verrà usata come anteprima della notizia, come testata della pagina dettaglio e come Open Graph Image.',
     name: 'image',
     type: 'image',
     options: {

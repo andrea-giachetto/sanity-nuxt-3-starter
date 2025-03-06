@@ -1,5 +1,6 @@
 import { defineConfig, isDev } from 'sanity'
 import { deskTool } from 'sanity/desk'
+import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 import { visionTool } from '@sanity/vision'
 import { media } from 'sanity-plugin-media'
 import { muxInput } from 'sanity-plugin-mux-input'
@@ -23,6 +24,18 @@ export default defineConfig({
 		muxInput({ mp4_support: 'standard' }),
 		media(),
 		...(isDev ? [visionTool()] : []),
+
+		simplerColorInput({
+			// Note: These are all optional
+			defaultColorFormat: 'rgba',
+			defaultColorList: [
+				{ label: 'Bianco', value: '#ffffff' },
+				{ label: 'Scuro', value: '#333333' },
+				{ label: 'Rosso', value: '#ca786d' },
+				{ label: 'Oro', value: '#626754' },
+			],
+			enableSearch: true,
+		})
 	],
 
 	schema: {

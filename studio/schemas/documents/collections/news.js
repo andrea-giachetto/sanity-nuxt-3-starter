@@ -1,6 +1,7 @@
 import { BiFile } from 'react-icons/bi/'
 import pageFields from '../pageComponents/pageFields'
 import groups from '../groups'
+import { defineField } from 'sanity'
 
 export default {
   title: 'News',
@@ -16,7 +17,30 @@ export default {
     }
   ],
   fields: [
+    {
+      title: 'In evidenza',
+      description: 'Seleziona per mettere in evidenza la news.',
+      name: 'isHighlight',
+      type: 'boolean',
+      validation: Rule => Rule.required(),
+      group: 'settings'
+    },
+    defineField({
+      title: 'Autore',
+      description: 'Inserisci l\'autore della news.',
+      name: 'author',
+      type: 'string',
+      validation: Rule => Rule.required(),
+      group: 'settings',
+      options: {
+        list: [
+          { title: 'Redazione La Capitale', value: 'Redazione La Capitale' },
+        ],
+      }
+    }),
+
     ...pageFields.map(field => field),
+    // field true / false "in evidenza"
 
     // field reference to type: 'tags', 'temi', 'quartiere'
     {
