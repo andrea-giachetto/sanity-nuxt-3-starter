@@ -8,7 +8,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth dark:bg-brand-gray-600 bg-brand-gray-50;
+    @apply scroll-smooth dark:bg-brand-gray-600 bg-brand-gray-250;
   }
 
   body {

@@ -2,7 +2,7 @@
   <div class="z-40 sticky top-0 left-0 w-full">
     <div
       id="top-bar"
-      class="dark:bg-brand-gray-600 bg-brand-gray-50 h-14 transition-all duration-300"
+      class="dark:bg-brand-gray-600 bg-brand-gray-250 h-14 transition-all duration-300"
     >
       <div
         class="grid grid-cols-2 lg:grid-cols-3 container h-full"

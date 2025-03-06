@@ -29,12 +29,12 @@ module.exports = {
         brand: {
           "gray-50": "#FFFDFD",
           "gray-200": "#EAE8E8",
+          "gray-250": "#e6e6e6",
           "gray-300": "#BFBBBB",
           "gray-400": "#777676",
           "gray-500": "#363535",
           "gray-600": "#262424",
           "gray-700": "#1E1E1E",
-          "red-500": "#8D0942",
         },
       },
     },
