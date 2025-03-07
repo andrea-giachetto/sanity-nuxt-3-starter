@@ -5,8 +5,8 @@
       @click="colorMode.preference = 'light'"
       :class="{
         'border border-brand-gray-700 z-10':
-          colorMode.preference === 'light',
-        'opacity-60': colorMode.preference === 'dark',
+          colorMode.value === 'light',
+        'opacity-60': colorMode.value === 'dark',
       }"
     >
       <span class="text-brand-gray-600 text-sm">LIGHT</span>
@@ -20,8 +20,8 @@
       @click="colorMode.preference = 'dark'"
       :class="{
         'border border-brand-gray-50 z-10':
-          colorMode.preference === 'dark',
-        'opacity-60': colorMode.preference === 'light',
+          colorMode.value === 'dark',
+        'opacity-60': colorMode.value === 'light',
       }"
     >
       <span class="text-brand-gray-50 text-sm">DARK</span>

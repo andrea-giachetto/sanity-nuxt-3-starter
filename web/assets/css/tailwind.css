@@ -1,4 +1,4 @@
-@import './_fonts.css';
+@import "./_fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -15,8 +15,8 @@
     @apply font-brand-primary dark:text-brand-gray-50 text-brand-gray-700;
   }
 
-  /* p {
-    @apply font-brand-primary text-lg lg:text-xl font-light;
+  p {
+    @apply font-brand-primary font-light;
   }
 
   h1 {
@@ -24,11 +24,11 @@
   }
 
   h2 {
-    @apply font-brand-secondary text-4xl lg:text-6xl font-semibold dark:text-brand-gray-300 text-brand-gray-500;
+    @apply font-brand-secondary text-4xl lg:text-6xl font-semibold;
   }
 
   h3 {
-    @apply font-brand-secondary text-2xl lg:text-4xl font-normal italic;
+    @apply font-brand-secondary text-2xl lg:text-4xl font-normal;
   }
 
   h4 {
@@ -36,12 +36,13 @@
   }
 
   h5 {
-    @apply font-brand-primary text-lg lg:text-2xl font-light italic dark:text-brand-gray-300 text-brand-gray-500;
+    @apply font-brand-primary text-lg lg:text-2xl font-light;
   }
 
   h6 {
-    @apply font-brand-primary text-sm font-light uppercase dark:text-brand-gray-300 text-brand-gray-500;
-  } */
+    @apply font-brand-primary text-sm font-light;
+  }
+}
 /* 
   ::-webkit-scrollbar {
     @apply bg-transparent w-1;
@@ -53,7 +54,7 @@
 
   ::-webkit-scrollbar-thumb {
     @apply !bg-white rounded-lg;
-  } */
+  }
 }
 
 @layer components {

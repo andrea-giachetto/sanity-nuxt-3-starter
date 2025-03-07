@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="container">
-      <SectionUltimeNotizie />
+      <component
+        v-for="(component, i) in data?.content.components"
+        :is="`Section${component._type}`"
+        :data="component"
+      />
     </div>
   </div>
 </template>
@@ -10,5 +14,6 @@
 import { homeQuery } from "@/queries/contentQueries";
 const data = await useSanityData({
   query: homeQuery,
+  params: {},
 });
 </script>

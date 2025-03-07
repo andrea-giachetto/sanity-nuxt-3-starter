@@ -4,7 +4,7 @@ composable for loading and previewing data from sanity
 export default async function ({
   query,
   params,
-  livePreview = true,
+  livePreview = false,
 }) {
   const mainStore = useMainStore();
   const sanityClient = mainStore.previewIsActive
