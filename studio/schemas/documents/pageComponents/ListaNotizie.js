@@ -37,7 +37,7 @@ const ListaNotizie = defineType({
     }),
     defineField({
       title: 'Come selezionare la notizia',
-      description: 'In modalità automatica, dovrai selezionare il tema, quartiere o tag dell\'ultima notizia impostata in evidenza.',
+      description: 'Dovrai selezionare il tema, quartiere o tag dell\'ultima notizia impostata in evidenza.',
       name: 'selectBy',
       type: 'string',
       options: {
