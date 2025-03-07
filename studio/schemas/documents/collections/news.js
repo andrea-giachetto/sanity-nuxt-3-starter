@@ -38,6 +38,14 @@ export default {
         ],
       }
     }),
+    defineField({
+      title: 'Minuti di lettura',
+      description: 'Inserisci i minuti di lettura necessari,.',
+      name: 'readingTime',
+      type: 'number',
+      validation: Rule => Rule.required(),
+      group: 'settings',
+    }),
 
     ...pageFields.map(field => field),
     // field true / false "in evidenza"
