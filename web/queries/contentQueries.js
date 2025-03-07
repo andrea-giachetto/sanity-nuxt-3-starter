@@ -1,7 +1,7 @@
 import {
-	contentBlockQuery,
-	seoQuery,
-	linkQuery,
+  contentBlockQuery,
+  seoQuery,
+  linkQuery,
 } from "@/queries/helperQueries";
 
 export const siteQuery = groq`{
@@ -33,25 +33,15 @@ export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc) [0
   content {
     components[] {
       ...,
-      news1 {
-        news-> { 
-          ...,
-        }
-      },
-      news2 {
-        news-> {
-          ...,
-        }
-      },
-      news3 {
-        news-> {
-          ...,
-        }
-      },
-      news4 {
-        news-> {
-          ...,
-        }
+      _type == "UltimeNotizie" => {
+				list[] {
+					...,
+					selection == "manual" => {
+						news -> {
+							...,
+						}
+					}
+				}
       }
     }
   }
