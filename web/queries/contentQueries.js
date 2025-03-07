@@ -28,9 +28,33 @@ export const siteQuery = groq`{
 	"tags":  *[_type == "tag"],
 }`;
 
-export const homeQuery = groq`*[(_type == "pageHome")] | order(_updatedAt desc) [0]{
-		...,
-		projects[]->{_id, title, subtitle, slug, titleImage{..., asset->}},
+export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc) [0]{
+  ...,
+  content {
+    components[] {
+      ...,
+      news1 {
+        news-> { 
+          ...,
+        }
+      },
+      news2 {
+        news-> {
+          ...,
+        }
+      },
+      news3 {
+        news-> {
+          ...,
+        }
+      },
+      news4 {
+        news-> {
+          ...,
+        }
+      }
+    }
+  }
 }`;
 
 export const pageQuery = groq`
