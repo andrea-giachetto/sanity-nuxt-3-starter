@@ -47,7 +47,7 @@ const Immagini = defineType({
       title: 'Immagine dentro Container con caption',
       name: 'container',
       type: 'object',
-      hidden: ({ parent }) => parent?.layout !== 'container',
+      hidden: ({ parent }) => parent?.layout !== '1-col',
       fields: [
         defineField({
           title: 'Immagine',
