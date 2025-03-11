@@ -52,8 +52,11 @@
           </h6>
           <span
             class="block mt-4 uppercase text-brand-gray-400 text-xs"
-            >{{ timeAgo(el.news._updatedAt) }} - TEMPO DI
-            LETTURA {{ el.news.readingTime }}'</span
+            >{{
+              timeAgo(el.news._updatedAt ?? el.news._createdAt)
+            }}
+            - TEMPO DI LETTURA
+            {{ el.news.readingTime }}'</span
           >
         </nuxt-link>
       </div>
@@ -88,8 +91,11 @@
         </h3>
         <span
           class="block mt-4 uppercase text-brand-gray-400 text-xs"
-          >{{ timeAgo(mainNews._updatedAt) }} - TEMPO DI
-          LETTURA {{ mainNews.readingTime }}'</span
+          >{{
+            timeAgo(mainNews._updatedAt ?? mainNews._createdAt)
+          }}
+          - TEMPO DI LETTURA
+          {{ mainNews.readingTime }}'</span
         >
       </nuxt-link>
       <div
@@ -121,13 +127,16 @@
             </h5>
           </div>
           <SanityImage
-            :asset-id="mainNews?.image.asset._ref"
+            :asset-id="el.news.image.asset._ref"
             class="w-full"
           />
           <span
             class="block mt-4 uppercase text-brand-gray-400 text-xs"
-            >{{ timeAgo(el.news._updatedAt) }} - TEMPO DI
-            LETTURA {{ el.news.readingTime }}'</span
+            >{{
+              timeAgo(el.news._updatedAt ?? el.news._createdAt)
+            }}
+            - TEMPO DI LETTURA
+            {{ el.news.readingTime }}'</span
           >
         </nuxt-link>
       </div>

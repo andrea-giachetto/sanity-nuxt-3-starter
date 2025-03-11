@@ -1,5 +1,8 @@
 <template>
-  <nuxt-link class="block relative" :to="`/articolo/${data?.slug.current}`">
+  <nuxt-link
+    class="block relative"
+    :to="`/articolo/${data?.slug.current}`"
+  >
     <SanityImage
       :asset-id="data?.image.asset._ref"
       class="h-96 object-cover w-full"
@@ -21,8 +24,10 @@
       </h4>
       <span
         class="block mt-4 uppercase text-brand-gray-400 text-xs lg:absolute lg:bottom-4"
-        >{{ timeAgo(data?._updatedAt) }} - TEMPO DI LETTURA
-        {{ data?.readingTime }}'</span
+        >{{
+          timeAgo(data?._updatedAt ?? data?._createdAt)
+        }}
+        - TEMPO DI LETTURA {{ data?.readingTime }}'</span
       >
     </div>
   </nuxt-link>
