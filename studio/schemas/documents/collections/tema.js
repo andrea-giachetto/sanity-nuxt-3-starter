@@ -31,11 +31,12 @@ export default {
   preview: {
     select: {
       title: 'title',
+      media: 'image'
     },
-    prepare({ title }) {
+    prepare({ title, media }) {
       return {
         title: title ? title : '',
-        media: BiSolidLayer,
+        media,
       }
     },
   },
