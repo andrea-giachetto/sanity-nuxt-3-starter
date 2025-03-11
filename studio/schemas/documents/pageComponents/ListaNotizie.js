@@ -12,14 +12,9 @@ const ListaNotizie = defineType({
       type: 'string',
     }),
     defineField({
-      title: 'Quante notizie caricare per questa lista?',
-      name: 'amount',
-      type: 'number',
-    }),
-    defineField({
-      title: 'Layout della lista',
+      title: 'Colonne della lista di anteprima',
       description: 'Fai riferimento al documento "Specifiche Tecniche" per vedere il layout di ogni opzione',
-      name: 'layout',
+      name: 'columns',
       type: 'string',
       options: {
         list: [
@@ -31,9 +26,15 @@ const ListaNotizie = defineType({
       },
     }),
     defineField({
-      title: 'Vuoi attivare il bottone "Carica altre notizie"?',
-      name: 'loadMore',
-      type: 'boolean',
+      title: 'Layout componente',
+      name: 'layout',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Anteprima', value: 'preview' },
+          { title: 'Completa', value: 'complete' },
+        ],
+      }
     }),
     defineField({
       title: 'Come selezionare la notizia',

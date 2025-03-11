@@ -1,6 +1,6 @@
 import { BiSolidMegaphone } from 'react-icons/bi/'
 import { slugify, validateSlug } from '@/utils/helperFunctions.js'
-import { defineField } from 'sanity'
+import { defineField, defineArrayMember } from 'sanity'
 
 export default {
   title: 'Pubblicità',
@@ -9,32 +9,43 @@ export default {
   icon: BiSolidMegaphone,
   fields: [
     defineField({
-      title: 'Titolo',
-      description: 'Inserisci il titolo della pubblicità. Questo campo serve solo come anteprima per la lista per riconoscere la pubblicità specifica nella lista di pubblicità.',
+      title: 'Title',
       name: 'title',
       type: 'string',
-      validation: Rule => Rule.required(),
+      validation: (Rule) => Rule.required(),
     }),
-    // array of objects, with fields for each object (image and link)
     defineField({
-      title: 'Immagini',
-      description: 'Carica le immagini della pubblicità.',
-      name: 'images',
+      title: 'Insert list of Images',
+      name: 'list',
       type: 'array',
       of: [
-        {
-          type: 'image',
+        defineArrayMember({
+          title: 'Slide con Link',
+          name: 'slide',
+          type: 'object',
           fields: [
-            {
-              title: 'Link',
-              name: 'link',
-              type: 'url',
-              validation: Rule => Rule.required(),
-            },
+            defineField({
+              title: 'Immagine',
+              name: 'image',
+              type: 'image'
+            }),
+            defineField({
+              title: 'URL',
+              name: 'url',
+              type: 'url'
+            }),
           ],
-        },
-      ],
-      validation: Rule => Rule.required(),
+          // preview: {
+          //   select: {
+          //     title: 'picture.alt',
+          //   },
+          //   prepare({ title }) {
+          //     return {
+          //       title: title || 'Picture',
+          //     }
+          //   }
+          // }
+        }),
     })
   ],
   preview: {

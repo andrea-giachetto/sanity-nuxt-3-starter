@@ -105,14 +105,4 @@ export const structure = (S) =>
 			S.divider(),
 
 			// S.documentListItem().id('siteNav').schemaType('siteNav'),
-
-			// S.documentListItem().id('siteOptions').schemaType('siteOptions'),
-			// S.listItem({
-			// 	title: 'Opzioni del sito',
-			// 	id: 'siteOptions',
-			// 	schemaType: 'siteOptions',
-			// 	child: () =>
-			// 		S.documentTypeList('siteOptions')
-			// 			.title('siteOptions')
-			// })
 		])
