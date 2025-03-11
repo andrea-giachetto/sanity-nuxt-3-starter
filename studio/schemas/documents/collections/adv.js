@@ -1,5 +1,4 @@
 import { BiSolidMegaphone } from 'react-icons/bi/'
-import { slugify, validateSlug } from '@/utils/helperFunctions.js'
 import { defineField, defineArrayMember } from 'sanity'
 
 export default {
@@ -27,12 +26,12 @@ export default {
             defineField({
               title: 'Immagine',
               name: 'image',
-              type: 'image'
+              type: 'image',
             }),
             defineField({
               title: 'URL',
               name: 'url',
-              type: 'url'
+              type: 'url',
             }),
           ],
           // preview: {
@@ -45,9 +44,9 @@ export default {
           //     }
           //   }
           // }
-        })
-      ]
-    })
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

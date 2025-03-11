@@ -11,7 +11,7 @@
             :text="getThemeById(mainNews?.tema._ref).title"
             :color="
               getThemeById(mainNews?.tema._ref)
-                .backgroundColor.value
+                .backgroundColor.value ?? 'white'
             "
           />
         </div>
@@ -41,12 +41,12 @@
               :text="getThemeById(el.news.tema._ref).title"
               :color="
                 getThemeById(el.news.tema._ref)
-                  .backgroundColor.value
+                  .backgroundColor.value ?? 'white'
               "
             />
           </div>
           <h6
-            class="font-brand-secondary text-lg lg:text-2xl font-normal"
+            class="font-brand-secondary text-lg lg:text-2xl font-normal line-clamp-3"
           >
             {{ el.news.title }}
           </h6>
@@ -64,9 +64,6 @@
   </div>
 
   <div class="py-12" v-else>
-    <h3 class="text-3xl lg:text-5xl font-semibold">
-      Notizie in Evidenza
-    </h3>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
       <nuxt-link
         :to="`/articolo/${mainNews?.slug.current}`"
@@ -82,7 +79,7 @@
             :text="getThemeById(mainNews?.tema._ref).title"
             :color="
               getThemeById(mainNews?.tema._ref)
-                .backgroundColor.value
+                .backgroundColor.value ?? 'white'
             "
           />
         </div>
@@ -116,12 +113,12 @@
                 "
                 :color="
                   getThemeById(el.news.tema._ref)
-                    .backgroundColor.value
+                    .backgroundColor.value ?? 'white'
                 "
               />
             </div>
             <h5
-              class="font-brand-secondary text-lg lg:text-2xl font-normal"
+              class="font-brand-secondary text-lg lg:text-2xl font-normal line-clamp-3"
             >
               {{ el.news.title }}
             </h5>

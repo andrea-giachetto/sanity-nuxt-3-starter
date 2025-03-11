@@ -20,6 +20,12 @@ export const useMainStore = defineStore("mainStore", () => {
     );
   };
 
+  const getThemeBySlug = (slug: string) => {
+    return allThemes.value.find(
+      (theme: any) => theme.slug.current === slug
+    );
+  }
+
   const getTagById = (id: string) => {
     return allTags.value.find(
       (tag: any) => tag._id === id
@@ -39,6 +45,7 @@ export const useMainStore = defineStore("mainStore", () => {
     allQuarters,
     fetchAll,
     getThemeById,
+    getThemeBySlug,
     getTagById,
     getQuarterById
   };

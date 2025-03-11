@@ -14,11 +14,11 @@
         :text="getThemeById(data?.tema._ref).title"
         :color="
           getThemeById(data?.tema._ref).backgroundColor
-            .value
+            .value ?? 'white'
         "
       />
       <h4
-        class="font-brand-secondary text-lg lg:text-2xl font-semibold"
+        class="font-brand-secondary text-lg lg:text-2xl font-semibold line-clamp-3"
       >
         {{ data?.title }}
       </h4>
