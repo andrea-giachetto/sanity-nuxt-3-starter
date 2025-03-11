@@ -1,5 +1,6 @@
 import { BiSolidMegaphone } from 'react-icons/bi/'
 import { slugify, validateSlug } from '@/utils/helperFunctions.js'
+import { defineField, defineArrayMember } from 'sanity'
 
 export default {
   title: 'Pubblicità',
@@ -7,13 +8,46 @@ export default {
   type: 'document',
   icon: BiSolidMegaphone,
   fields: [
-    {
+    defineField({
       title: 'Title',
       name: 'title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-      group: 'content',
-    },
+    }),
+    defineField({
+      title: 'Insert list of Images',
+      name: 'list',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          title: 'Slide con Link',
+          name: 'slide',
+          type: 'object',
+          fields: [
+            defineField({
+              title: 'Immagine',
+              name: 'image',
+              type: 'image'
+            }),
+            defineField({
+              title: 'URL',
+              name: 'url',
+              type: 'url'
+            }),
+          ],
+          // preview: {
+          //   select: {
+          //     title: 'picture.alt',
+          //   },
+          //   prepare({ title }) {
+          //     return {
+          //       title: title || 'Picture',
+          //     }
+          //   }
+          // }
+        }),
+      ],
+    })
   ],
   preview: {
     select: {
