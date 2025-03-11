@@ -6,12 +6,12 @@
     <div
       class="grid grid-cols-1 gap-8 mt-6"
       :class="{
-        'lg:grid-cols-2': props.data?.layout === '2-cols',
+        'lg:grid-cols-2': props.data?.columns === '2-cols',
         'lg:grid-cols-3':
-          props.data?.layout === '3-cols-v2',
+          props.data?.columns === '3-cols-v2',
         'lg:grid-cols-4':
-          data?.layout === '4-cols' ||
-          data?.layout === '3-cols-v1',
+          data?.columns === '4-cols' ||
+          data?.columns === '3-cols-v1',
       }"
     >
       <NewsCard
@@ -19,7 +19,7 @@
         :key="i"
         :class="{
           'lg:first:col-span-2':
-            props.data?.layout === '3-cols-v1',
+            props.data?.columns === '3-cols-v1',
         }"
         :data="el"
       />

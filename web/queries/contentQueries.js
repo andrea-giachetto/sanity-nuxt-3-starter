@@ -27,7 +27,8 @@ export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]
 							image,
 							readingTime,
 							slug,
-							_editedAt       
+							_editedAt,
+							_createdAt       
 						}
           },
           // Caso "automatic"
@@ -48,7 +49,8 @@ export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]
 							image,
 							readingTime,
 							slug,
-							_editedAt
+							_editedAt,
+							_createdAt
             }
           }
         }
@@ -71,7 +73,8 @@ export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]
 					image,
 					readingTime,
 					slug,
-					_editedAt
+					_editedAt,
+					_createdAt
 				}
 			}
     }

@@ -12,7 +12,9 @@
             >Roma, {{ todayDate }}</span
           >
         </div>
-        <ColorModeToggle class="hidden lg:flex" />
+        <client-only
+          ><ColorModeToggle class="hidden lg:flex"
+        /></client-only>
 
         <div class="flex gap-6 justify-end items-center">
           <span class="hidden lg:block text-xs"
@@ -124,7 +126,9 @@
         >
       </nav>
 
-      <ColorModeToggle class="mt-8 flex" />
+      <client-only
+        ><ColorModeToggle class="mt-8 flex"
+      /></client-only>
     </aside>
   </transition>
 </template>
