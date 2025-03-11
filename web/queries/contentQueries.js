@@ -55,7 +55,7 @@ export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]
       },
 			_type == "ListaNotizie" => {
 				...,
-				"news": *[
+				"newsList": *[
 					_type == "news" &&
 					references(
 						select(

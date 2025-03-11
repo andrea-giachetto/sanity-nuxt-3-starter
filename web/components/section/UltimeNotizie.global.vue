@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12" v-if="props.data?.layout === 'home'">
+  <div class="py-12" v-if="data?.layout === 'home'">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <nuxt-link
         :to="`/articolo/${mainNews?.slug.current}`"
@@ -32,7 +32,7 @@
         <nuxt-link
           :to="`/articolo/${el.news.slug.current}`"
           class="border-t border-brand-gray-400 py-4 last:pb-0 block"
-          v-for="(el, i) in props.data?.list.slice(1, 4)"
+          v-for="(el, i) in data?.list.slice(1, 4)"
           :key="i"
         >
           <div class="flex gap-2 py-4 items-start">
@@ -98,7 +98,7 @@
         <nuxt-link
           :to="`/articolo/${el.news.slug.current}`"
           class="border-t border-brand-gray-400 py-4 last:pb-0 first:border-none grid grid-cols-1 lg:grid-cols-2 gap-2 block"
-          v-for="(el, i) in props.data?.list.slice(1, 4)"
+          v-for="(el, i) in data?.list.slice(1, 4)"
           :key="i"
         >
           <div>
@@ -146,28 +146,5 @@ const mainNews = computed(() => {
 
 const { getThemeById } = useMainStore();
 
-function timeAgo(dateString: string): string {
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor(
-    (now.getTime() - date.getTime()) / 1000
-  );
-
-  let interval = Math.floor(seconds / 31536000);
-  if (interval > 1) return `${interval} anni fa`;
-
-  interval = Math.floor(seconds / 2592000);
-  if (interval > 1) return `${interval} mesi fa`;
-
-  interval = Math.floor(seconds / 86400);
-  if (interval > 1) return `${interval} giorni fa`;
-
-  interval = Math.floor(seconds / 3600);
-  if (interval > 1) return `${interval} ore fa`;
-
-  interval = Math.floor(seconds / 60);
-  if (interval > 1) return `${interval} minuti fa`;
-
-  return `poco fa`;
-}
+const { timeAgo } = useEditorialUtils();
 </script>
