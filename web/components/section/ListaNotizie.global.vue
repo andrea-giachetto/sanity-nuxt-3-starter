@@ -57,10 +57,7 @@
       }"
     >
       <NewsCard
-        v-for="(el, i) in data?.newsList.slice(
-          0,
-          4 - sliceFactor
-        )"
+        v-for="(el, i) in data?.newsList"
         :key="i"
         :class="{
           'lg:first:col-span-2':
@@ -68,6 +65,12 @@
         }"
         :data="el"
       />
+    </div>
+
+    <div class="flex justify-center mt-8">
+      <button class="bg-brand-gray-300 dark:bg-brand-gray-500 py-2 px-4 rounded-lg">
+        Carica altri articoli..
+      </button>
     </div>
   </div>
 </template>

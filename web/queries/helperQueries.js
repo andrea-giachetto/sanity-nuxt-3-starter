@@ -46,3 +46,71 @@ export const seoQuery = `
 		ogImage{asset->}
 	}
 `;
+
+export const componentsQuery = `
+components[] {
+	...,
+	_type == "UltimeNotizie" => {
+		list[] {
+			...,
+			// Caso "manual"
+			selection == "manual" => {
+				news-> {
+					tema,
+					title,
+					backgroundColor,
+					image,
+					readingTime,
+					slug,
+					_editedAt,
+					_createdAt       
+				}
+			},
+			// Caso "automatic"
+			selection == "automatic" => {
+				"news": *[
+					_type == "news" &&
+					references(
+						select(
+							^.selectBy == "tema" => ^.tema._ref,
+							^.selectBy == "quartiere" => ^.quartieri._ref,
+							^.selectBy == "tag" => ^.tags._ref
+						)
+					)
+				] | order(_editedAt desc)[0]{
+					tema,
+					title,
+					backgroundColor,
+					image,
+					readingTime,
+					slug,
+					_editedAt,
+					_createdAt
+				}
+			}
+		}
+	},
+	_type == "ListaNotizie" => {
+		...,
+		"newsList": *[
+			_type == "news" &&
+			references(
+				select(
+					^.selectBy == "tema" => ^.tema._ref,
+					^.selectBy == "quartiere" => ^.quartieri._ref,
+					^.selectBy == "tag" => ^.tags._ref
+				)
+			)
+		][0...9] | order(_editedAt desc){
+			tema,
+			title,
+			backgroundColor,
+			image,
+			readingTime,
+			slug,
+			_editedAt,
+			_createdAt
+		}
+	}
+}
+`;

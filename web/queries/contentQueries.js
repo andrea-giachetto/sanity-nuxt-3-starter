@@ -1,84 +1,35 @@
 import {
   contentBlockQuery,
   seoQuery,
-  linkQuery,
+  componentsQuery,
 } from "@/queries/helperQueries";
 
 export const siteQuery = groq`{
-	"temi":  *[_type == "tema"],
-	"quartieri":  *[_type == "quartiere"],
-	"tags":  *[_type == "tag"],
+	"temi":  *[_type == "tema"] {
+		..., 
+	},
+	"quartieri":  *[_type == "quartiere"]{
+		..., 
+	},
+	"tags":  *[_type == "tag"]{
+		..., 
+	},
 }`;
 
 export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]{
   ...,
   content {
-    components[] {
-      ...,
-      _type == "UltimeNotizie" => {
-        list[] {
-          ...,
-          // Caso "manual"
-          selection == "manual" => {
-            news-> {
-              tema,
-							title,
-							backgroundColor,
-							image,
-							readingTime,
-							slug,
-							_editedAt,
-							_createdAt       
-						}
-          },
-          // Caso "automatic"
-          selection == "automatic" => {
-            "news": *[
-              _type == "news" &&
-              references(
-                select(
-                  ^.selectBy == "tema" => ^.tema._ref,
-                  ^.selectBy == "quartiere" => ^.quartieri._ref,
-                  ^.selectBy == "tag" => ^.tags._ref
-                )
-              )
-            ] | order(_editedAt desc)[0]{
-              tema,
-							title,
-							backgroundColor,
-							image,
-							readingTime,
-							slug,
-							_editedAt,
-							_createdAt
-            }
-          }
-        }
-      },
-			_type == "ListaNotizie" => {
-				...,
-				"newsList": *[
-					_type == "news" &&
-					references(
-						select(
-							^.selectBy == "tema" => ^.tema._ref,
-							^.selectBy == "quartiere" => ^.quartieri._ref,
-							^.selectBy == "tag" => ^.tags._ref
-						)
-					)
-				] | order(_editedAt desc){
-					tema,
-					title,
-					backgroundColor,
-					image,
-					readingTime,
-					slug,
-					_editedAt,
-					_createdAt
-				}
-			}
-    }
+    ${componentsQuery}
   }
+}
+`;
+
+export const themeQuery = groq`
+*[_type == 'tema' && slug.current == $slug] | order(_updatedAt desc) [0]{
+	...,
+	content {
+		${componentsQuery}
+	},
 }
 `;
 
