@@ -1,4 +1,4 @@
-import {BiSliderAlt} from 'react-icons/bi/'
+import { BiSliderAlt } from 'react-icons/bi/'
 
 export default {
 	name: 'siteOptions',
@@ -7,47 +7,20 @@ export default {
 	icon: BiSliderAlt,
 	groups: [
 		{
-			title: 'Page',
-			name: 'page',
+			title: 'Header',
+			name: 'header',
 			default: true,
 		},
 		{
-			title: 'SEO',
-			name: 'seo',
+			title: 'Footer',
+			name: 'footer',
 		},
 	],
 	fields: [
-		{
-			title: 'Page Title',
-			name: 'name',
-			type: 'string',
-			validation: (Rule) => Rule.required(),
-			group: 'page',
-		},
-		{
-			title: 'Copyright',
-			name: 'copyrightText',
-			type: 'string',
-			group: 'page',
-		},
-		/* seo */
-		{
-			title: 'Language Code',
-			description:
-				'ISO 639-1 Language Codes (i.e. “de” or “en”), can be country specific (i.e. “en-us”)',
-			name: 'language',
-			type: 'string',
-			group: 'seo',
-		},
-		{
-			title: 'SEO',
-			name: 'seo',
-			type: 'seo',
-			group: 'seo',
-		},
+
 	],
 	preview: {
-		prepare({}) {
+		prepare({ }) {
 			return {
 				title: 'Options',
 			}

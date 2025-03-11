@@ -1,50 +1,35 @@
 <template>
-  <div class="z-40 fixed top-0 left-0 w-full">
-    <div class="dark:bg-brand-gray-600 py-3">
+  <div class="z-40 sticky top-0 left-0 w-full">
+    <div
+      id="top-bar"
+      class="dark:bg-brand-gray-600 bg-brand-gray-250 h-14 transition-all duration-300"
+    >
       <div
-        class="grid grid-cols-2 lg:grid-cols-3 container"
+        class="grid grid-cols-2 lg:grid-cols-3 container h-full"
       >
         <div class="flex items-center">
           <span class="text-sm dark:text-brand-gray-300"
             >Roma, {{ todayDate }}</span
           >
         </div>
-        <ColorModeToggle class="hidden lg:flex" />
+        <client-only
+          ><ColorModeToggle class="hidden lg:flex"
+        /></client-only>
 
         <div class="flex gap-6 justify-end items-center">
           <span class="hidden lg:block text-xs"
             >SEGUICI SU:</span
           >
-          <a href="/" target="_blank">
-            <svgo-IG
-              :fontControlled="false"
-              class="w-5 dark:text-brand-gray-50"
-            />
-          </a>
-          <a href="/" target="_blank">
-            <svgo-FB
-              :fontControlled="false"
-              class="w-5 dark:text-brand-gray-50"
-            />
-          </a>
-          <a href="/" target="_blank">
-            <svgo-X
-              :fontControlled="false"
-              class="w-4 dark:text-brand-gray-50"
-            />
-          </a>
-          <a href="/" target="_blank">
-            <svgo-YT
-              :fontControlled="false"
-              class="w-6 dark:text-brand-gray-50"
-            />
-          </a>
+          <SocialArray />
         </div>
       </div>
     </div>
 
-    <div class="dark:bg-brand-gray-700 py-5">
-      <div class="container grid grid-cols-3">
+    <div
+      id="sticky-bar"
+      class="dark:bg-brand-gray-700 bg-brand-gray-50 h-20 transition-all duration-300"
+    >
+      <div class="container grid grid-cols-3 h-full">
         <nav class="hidden lg:flex items-center gap-6">
           <nuxt-link class="font-bold" to="/"
             >News</nuxt-link
@@ -141,7 +126,9 @@
         >
       </nav>
 
-      <ColorModeToggle class="mt-8 flex" />
+      <client-only
+        ><ColorModeToggle class="mt-8 flex"
+      /></client-only>
     </aside>
   </transition>
 </template>
@@ -158,20 +145,37 @@ const closeMenu = () => {
   isMenuOpen.value = false;
 };
 
-const todayDate = computed(() => {
-  const options = {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  };
-  const today = new Date();
-  const formattedDate = new Intl.DateTimeFormat(
-    "it-IT",
-    options
-  ).format(today);
+// Data odierna
+const options = {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+};
+const today = new Date();
+const formattedDate = new Intl.DateTimeFormat(
+  "it-IT",
+  options
+).format(today);
+const todayDate = formattedDate.replace(",", "");
 
-  // Rimuove la virgola che potrebbe essere presente in alcuni formati locali
-  return formattedDate.replace(",", "");
+onMounted(() => {
+  const topBar = document.getElementById("top-bar");
+  const stickyBar = document.getElementById("sticky-bar");
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    if (
+      window.scrollY > lastScrollY &&
+      window.scrollY > 50
+    ) {
+      topBar.style.transform = "translateY(-56px)"; // Nasconde la top bar
+      stickyBar.style.transform = "translateY(-56px)"; // Nasconde la sticky bar
+    } else {
+      topBar.style.transform = "translateY(0)"; // La mostra di nuovo se si risale
+      stickyBar.style.transform = "translateY(0)"; // La mostra di nuovo se si risale
+    }
+    lastScrollY = window.scrollY;
+  });
 });
 </script>
 

@@ -86,7 +86,7 @@ export const structure = (S) =>
 			S.divider(),
 
 			S.listItem({
-				title: 'Advertisment',
+				title: 'Pubblicità',
 				id: 'adv',
 				schemaType: 'adv',
 				child: () =>
@@ -105,16 +105,4 @@ export const structure = (S) =>
 			S.divider(),
 
 			// S.documentListItem().id('siteNav').schemaType('siteNav'),
-
-			// S.listItem()
-			// 	.icon()
-			// 	.title('Settings')
-			// 	.child(
-			// 		S.list()
-			// 			.title('Settings')
-			// 			.items([
-			// 				S.documentListItem().id('siteOptions').schemaType('siteOptions'),
-
-			// 			]),
-			// 	),
 		])

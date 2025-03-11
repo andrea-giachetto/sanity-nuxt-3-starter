@@ -1,37 +1,86 @@
 import {
-	contentBlockQuery,
-	seoQuery,
-	linkQuery,
+  contentBlockQuery,
+  seoQuery,
+  linkQuery,
 } from "@/queries/helperQueries";
 
 export const siteQuery = groq`{
-	"siteOptions": *[_id == "siteOptions"] [0] {
-		...,
-		footerLinks[] {
-			${linkQuery}
-		},
-		cookieText[]{
-			${contentBlockQuery}
-		},
-		${seoQuery}
-	},
-	"siteNav": *[_id == "siteNav"] [0] {
-		navMain[]{
-			${linkQuery}
-		},
-		navFooter[]{
-			${linkQuery}
-		},
-	},
 	"temi":  *[_type == "tema"],
 	"quartieri":  *[_type == "quartiere"],
 	"tags":  *[_type == "tag"],
 }`;
 
-export const homeQuery = groq`*[(_type == "pageHome")] | order(_updatedAt desc) [0]{
-		...,
-		projects[]->{_id, title, subtitle, slug, titleImage{..., asset->}},
-}`;
+export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]{
+  ...,
+  content {
+    components[] {
+      ...,
+      _type == "UltimeNotizie" => {
+        list[] {
+          ...,
+          // Caso "manual"
+          selection == "manual" => {
+            news-> {
+              tema,
+							title,
+							backgroundColor,
+							image,
+							readingTime,
+							slug,
+							_editedAt,
+							_createdAt       
+						}
+          },
+          // Caso "automatic"
+          selection == "automatic" => {
+            "news": *[
+              _type == "news" &&
+              references(
+                select(
+                  ^.selectBy == "tema" => ^.tema._ref,
+                  ^.selectBy == "quartiere" => ^.quartieri._ref,
+                  ^.selectBy == "tag" => ^.tags._ref
+                )
+              )
+            ] | order(_editedAt desc)[0]{
+              tema,
+							title,
+							backgroundColor,
+							image,
+							readingTime,
+							slug,
+							_editedAt,
+							_createdAt
+            }
+          }
+        }
+      },
+			_type == "ListaNotizie" => {
+				...,
+				"newsList": *[
+					_type == "news" &&
+					references(
+						select(
+							^.selectBy == "tema" => ^.tema._ref,
+							^.selectBy == "quartiere" => ^.quartieri._ref,
+							^.selectBy == "tag" => ^.tags._ref
+						)
+					)
+				] | order(_editedAt desc){
+					tema,
+					title,
+					backgroundColor,
+					image,
+					readingTime,
+					slug,
+					_editedAt,
+					_createdAt
+				}
+			}
+    }
+  }
+}
+`;
 
 export const pageQuery = groq`
 *[_type == 'page' && slug.current == $slug] | order(_updatedAt desc) [0]{

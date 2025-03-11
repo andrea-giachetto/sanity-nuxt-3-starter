@@ -1,4 +1,4 @@
-@import './_fonts.css';
+@import "./_fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +8,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth dark:bg-brand-gray-600 bg-brand-gray-50;
+    @apply scroll-smooth dark:bg-brand-gray-600 bg-brand-gray-250;
   }
 
   body {
@@ -16,27 +16,35 @@
   }
 
   p {
+    @apply font-brand-primary font-light;
   }
 
   h1 {
+    @apply font-brand-secondary text-5xl lg:text-7xl font-normal;
   }
 
   h2 {
+    @apply font-brand-secondary text-4xl lg:text-6xl font-semibold;
   }
 
   h3 {
+    @apply font-brand-secondary text-2xl lg:text-4xl font-normal;
   }
 
   h4 {
+    @apply font-brand-primary text-xl lg:text-3xl font-medium;
   }
 
   h5 {
+    @apply font-brand-primary text-lg lg:text-2xl font-light;
   }
 
   h6 {
+    @apply font-brand-primary text-sm font-light;
   }
-
-  /* ::-webkit-scrollbar {
+}
+/* 
+  ::-webkit-scrollbar {
     @apply bg-transparent w-1;
   }
 
@@ -46,7 +54,7 @@
 
   ::-webkit-scrollbar-thumb {
     @apply !bg-white rounded-lg;
-  } */
+  }
 }
 
 @layer components {

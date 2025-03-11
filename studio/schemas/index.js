@@ -51,7 +51,7 @@ export const schemaTypes = [
 	pageQuartieri,
 	pageContatti,
 	siteNav,
-	siteOptions,
+	// siteOptions,
 
 	// content
 	blockContent,
