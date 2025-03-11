@@ -13,12 +13,19 @@ export default {
   fields: [
     ...pageFields.map(field => field),
 
-    {
-      name: 'backgroundColor',
+    defineField({
+      title: 'Descrizione',
+      name: 'description',
+      type: 'string',
+      group: 'settings'
+    }),
+
+    defineField({
       title: 'Colore del tema',
+      name: 'backgroundColor',
       type: 'simplerColor',
       group: 'settings'
-    },
+    }),
 
   ],
   preview: {

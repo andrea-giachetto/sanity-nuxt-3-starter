@@ -28,8 +28,11 @@ import pageComponents from '../schemas/documents/pageComponents'
 import pageTags from './documents/singletons/pageTags'
 import pageQuartieri from './documents/singletons/pageQuartieri'
 import blockContent from './objects/blockContent'
+import { newsType } from './types/news.type'
 
 export const schemaTypes = [
+	newsType,
+
 	// collections
 	page,
 	news,

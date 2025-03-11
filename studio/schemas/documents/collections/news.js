@@ -83,11 +83,14 @@ export default {
   preview: {
     select: {
       title: 'title',
+      image: 'image',
+      tema: 'tema.title',
     },
-    prepare({ title }) {
+    prepare({ title, image, tema }) {
       return {
         title: title ? title : '',
-        media: BiFile,
+        subtitle: tema ? `Tema: ${tema}` : '',
+        media: image,
       }
     },
   },

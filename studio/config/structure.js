@@ -106,15 +106,15 @@ export const structure = (S) =>
 
 			// S.documentListItem().id('siteNav').schemaType('siteNav'),
 
-			S.listItem()
-				.icon()
-				.title('Settings')
-				.child(
-					S.list()
-						.title('Settings')
-						.items([
-							S.documentListItem().id('siteOptions').schemaType('siteOptions'),
+			// S.listItem()
+			// 	.icon()
+			// 	.title('Settings')
+			// 	.child(
+			// 		S.list()
+			// 			.title('Settings')
+			// 			.items([
+			// 				S.documentListItem().id('siteOptions').schemaType('siteOptions'),
 
-						]),
-				),
+			// 			]),
+			// 	),
 		])

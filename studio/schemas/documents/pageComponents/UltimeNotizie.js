@@ -24,96 +24,23 @@ const UltimeNotizie = defineType({
       type: 'array',
       of: [
         defineField({
-          title: 'Notizia',
-          description: 'Seleziona direttamente la notizia o la tipologia di contenuto che vuoi visualizzare.',
           name: 'news',
-          type: 'object',
-          validation: Rule => Rule.required(),
-          options: {
-            collapsed: true,
-            collapsible: true,
-            columns: 2,
-          },
-          fields: [
-            defineField({
-              title: 'Selezione della Notizia: Manuale o Automatico',
-              description: 'Se manuale, potrai selezionare quale notizia visualizzare. Se automatica, verrà visualizzata la notizia più recente in base il tema, quartiere o tag selezionato.',
-              name: 'selection',
-              type: 'string',
-              options: {
-                list: [
-                  { title: 'Manuale', value: 'manual' },
-                  { title: 'Automatico', value: 'automatic' },
-                ],
-              }
-            }),
-            // if manual, select reference to news
-            defineField({
-              title: 'Notizia',
-              name: 'news',
-              type: 'reference',
-              to: [{ type: 'news' }],
-              // hidden
-              hidden: ({ parent }) => {
-                if (!parent?.selection) return true;
-
-                return parent?.selection === 'automatic'
-              },
-            }),
-            defineField({
-              title: 'Come selezionare la notizia',
-              description: 'In modalità automatica, dovrai selezionare il tema, quartiere o tag dell\'ultima notizia impostata in evidenza.',
-              name: 'selectBy',
-              type: 'string',
-              options: {
-                list: [
-                  { title: 'Tema', value: 'tema' },
-                  { title: 'Quartiere', value: 'quartiere' },
-                  { title: 'Tag', value: 'tag' },
-                ],
-              },
-              hidden: ({ parent }) => {
-                if (!parent?.selection) return true;
-
-                return parent?.selection === 'manual'
-              },
-            }),
-            defineField({
-              title: 'Tema',
-              name: 'tema',
-              type: 'reference',
-              to: [{ type: 'tema' }],
-              hidden: ({ parent }) => {
-                if (!parent?.selection || !parent?.selectBy) return true;
-
-                return parent?.selection === 'manual' || (parent?.selectBy === 'quartiere' || parent?.selectBy === 'tag')
-              },
-            }),
-            defineField({
-              title: 'Quartieri',
-              name: 'quartieri',
-              type: 'reference',
-              to: [{ type: 'quartiere' }],
-              hidden: ({ parent }) => {
-                if (!parent?.selection || !parent?.selectBy) return true;
-
-                return parent?.selection === 'manual' || (parent?.selectBy === 'tema' || parent?.selectBy === 'tag')
-              },
-            }),
-            defineField({
-              title: 'Tags',
-              name: 'tags',
-              type: 'reference',
-              to: [{ type: 'tag' }],
-              hidden: ({ parent }) => {
-                if (!parent?.selection || !parent?.selectBy) return true;
-
-                return parent?.selection === 'manual' || (parent?.selectBy === 'quartiere' || parent?.selectBy === 'tema')
-              },
-            }),
-          ]
+          type: 'newsType',
         }),
       ],
+      // max 4
+      validation: Rule => Rule.max(4),
+      preview: {
+        select: {
+          title: 'title',
+          media: '',
+        },
+        prepare({ title }) {
+          return {
+            title,
+          }
+        },
+      }
     }),
 
     // // Prima notizia
