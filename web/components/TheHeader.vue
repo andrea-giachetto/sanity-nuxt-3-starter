@@ -34,13 +34,13 @@
           <nuxt-link class="font-bold" to="/"
             >News</nuxt-link
           >
-          <nuxt-link class="font-bold" to="/"
+          <nuxt-link class="font-bold" to="/quartieri"
             >Quartieri di Roma</nuxt-link
           >
-          <nuxt-link class="font-bold" to="/"
+          <nuxt-link class="font-bold" to="/temi"
             >Temi</nuxt-link
           >
-          <nuxt-link class="font-bold" to="/"
+          <nuxt-link class="font-bold" to="/contatti"
             >Segnalazioni</nuxt-link
           >
         </nav>
@@ -117,11 +117,11 @@
           />
         </div>
         <nuxt-link class="font-bold" to="/">News</nuxt-link>
-        <nuxt-link class="font-bold" to="/"
+        <nuxt-link class="font-bold" to="/quartieri"
           >Quartieri di Roma</nuxt-link
         >
-        <nuxt-link class="font-bold" to="/">Temi</nuxt-link>
-        <nuxt-link class="font-bold" to="/"
+        <nuxt-link class="font-bold" to="/temi">Temi</nuxt-link>
+        <nuxt-link class="font-bold" to="/contatti"
           >Segnalazioni</nuxt-link
         >
       </nav>

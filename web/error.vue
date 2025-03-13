@@ -33,8 +33,4 @@ main {
 button {
   margin-top: 2rem;
 }
-
-.TheHeader:deep(.TheHeader_NavButton) {
-  display: none;
-}
 </style>

@@ -16,10 +16,10 @@
 </template>
 
 <script setup lang="ts">
-import { themeQuery } from "@/queries/contentQueries";
+import { quartersQuery } from "@/queries/contentQueries";
 const route = useRoute();
 const data = await useSanityData({
-  query: themeQuery,
+  query: quartersQuery,
   params: {
     slug: route.params.slug,
   },
