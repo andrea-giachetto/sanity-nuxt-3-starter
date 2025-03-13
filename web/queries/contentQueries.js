@@ -6,13 +6,22 @@ import {
 
 export const siteQuery = groq`{
 	"temi":  *[_type == "tema"] {
-		..., 
+		_id,
+		backgroundColor,
+		slug,
+		title,
+		image,
 	},
 	"quartieri":  *[_type == "quartiere"]{
-		..., 
+		_id,
+		slug,
+		title, 
+		image,
 	},
 	"tags":  *[_type == "tag"]{
-		..., 
+		_id,
+		slug,
+		title,
 	},
 }`;
 
@@ -25,7 +34,33 @@ export const homeQuery = groq`*[_type == "pageHome"] | order(_updatedAt desc)[0]
 `;
 
 export const themeQuery = groq`
-*[_type == 'tema' && slug.current == $slug] | order(_updatedAt desc) [0]{
+*[_type == 'tema' && slug.current == $slug][0]{
+	...,
+	content {
+		${componentsQuery}
+	},
+}
+`;
+
+export const quartersQuery = groq`
+*[_type == 'quartiere' && slug.current == $slug][0]{
+	...,
+	content {
+		${componentsQuery}
+	},
+}
+`;
+
+export const themesPageQuery = groq`
+*[_type == 'pageTemi'][0]{
+	...,
+	content {
+		${componentsQuery}
+	},
+}
+`;
+export const quartersPageQuery = groq`
+*[_type == 'pageQuartieri'][0]{
 	...,
 	content {
 		${componentsQuery}
@@ -39,27 +74,6 @@ export const pageQuery = groq`
 	content[] {
 		${contentBlockQuery}
 	},
-	${seoQuery}
-}
-`;
-
-export const projectsQuery = groq`
-*[(_type == "pageTemi")] | order(_updatedAt desc) [0]{
-	...,
-	"projects": *[_type == "project"] | order(title asc, _updatedAt desc) {
-		title, slug, subtitle, titleImage{..., asset->}
-	},
-	${seoQuery}
-}
-`;
-
-export const singleProjectQuery = groq`
-*[_type == 'project' && slug.current == $slug] | order(_updatedAt desc) [0]{
-	...,
-	content[] {
-		${contentBlockQuery}
-	},
-	titleImage{..., asset->},
 	${seoQuery}
 }
 `;
