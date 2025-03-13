@@ -5,6 +5,7 @@
         v-for="(component, i) in data?.content.components"
         :is="`Section${component._type}`"
         :data="component"
+        :key="i"
       />
     </div>
   </div>

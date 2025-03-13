@@ -30,7 +30,7 @@ export default async function ({
   });
 
   // get data
-  const { data, refresh } = await useLazySanityQuery(
+  const { data, refresh } = await useSanityQuery(
     query,
     params,
     sanityClient

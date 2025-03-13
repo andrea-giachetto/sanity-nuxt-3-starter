@@ -7,6 +7,7 @@
         v-for="(component, i) in data?.content.components"
         :is="`Section${component._type}`"
         :data="component"
+        :key="i"
       />
       <p v-else class="text-center py-12">
         Nessun contenuto da mostrare
