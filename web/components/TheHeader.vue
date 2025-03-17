@@ -116,12 +116,28 @@
             @click="toggleMenu"
           />
         </div>
-        <nuxt-link class="font-bold" to="/">News</nuxt-link>
-        <nuxt-link class="font-bold" to="/quartieri"
+        <nuxt-link
+          @click.native="closeMenu"
+          class="font-bold"
+          to="/"
+          >News</nuxt-link
+        >
+        <nuxt-link
+          @click.native="closeMenu"
+          class="font-bold"
+          to="/quartieri"
           >Quartieri di Roma</nuxt-link
         >
-        <nuxt-link class="font-bold" to="/temi">Temi</nuxt-link>
-        <nuxt-link class="font-bold" to="/contatti"
+        <nuxt-link
+          @click.native="closeMenu"
+          class="font-bold"
+          to="/temi"
+          >Temi</nuxt-link
+        >
+        <nuxt-link
+          @click.native="closeMenu"
+          class="font-bold"
+          to="/contatti"
           >Segnalazioni</nuxt-link
         >
       </nav>
