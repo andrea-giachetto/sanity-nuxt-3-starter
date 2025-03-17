@@ -58,7 +58,6 @@ components[] {
 				news-> {
 					tema,
 					title,
-					backgroundColor,
 					image,
 					readingTime,
 					slug,
@@ -80,7 +79,6 @@ components[] {
 				] | order(_editedAt desc)[0]{
 					tema,
 					title,
-					backgroundColor,
 					image,
 					readingTime,
 					slug,
@@ -104,7 +102,17 @@ components[] {
 		][0...9] | order(_editedAt desc){
 			tema,
 			title,
-			backgroundColor,
+			image,
+			readingTime,
+			slug,
+			_editedAt,
+			_createdAt
+		}
+	},
+	_type == "NotiziaFullscreen" =>{
+		news -> {
+			tema,
+			title,
 			image,
 			readingTime,
 			slug,

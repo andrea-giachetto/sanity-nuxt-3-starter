@@ -1,6 +1,9 @@
 <template>
   <div>
     <TheHeader />
+    <div class="container">
+      <Breadcrumbs />
+    </div>
     <slot />
     <TheFooter />
   </div>
